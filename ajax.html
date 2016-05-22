@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript">
+            setInterval(function(){
+                var xhttp = new XMLHttpRequest();            
+                xhttp.open("GET", "http://localhost:3000", true);
+                xhttp.send();
+                xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var counter_data = JSON.parse(xhttp.responseText);
+                        console.log(counter_data);
+                        counter_data.forEach(function(data){
+                            document.getElementById(data["counter_name"]).innerHTML = data["value"];
+                        })
+                    }
+                }
+            },100);
+            
+        </script>
+    </head>
+    <body>
+        <div id="counter_1"></div>
+        <div id="counter_2"></div>
+        <div id="counter_3"></div>
+        <div id="counter_4"></div>
+    </body>
+</html>
