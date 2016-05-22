@@ -19,7 +19,7 @@ var
     CONNECTION          = MYSQL.createConnection({
         host         : 'localhost',
         user         : 'root',
-        password     : 'paytm@197',
+        password     : '',
         database     : 'counter_engine'
     }),
     QUERY               = "SELECT * from counters";
